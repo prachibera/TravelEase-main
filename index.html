@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase:SmoothTravels,HappyTrails</title>
+    <!-- fevicon tag -->
+     <link rel="import" href="https://fontawesome.com/icons">
+    <link rel="shortcut icon" href="MyAssests/travelEase_icon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="#" id="home-link">Home</a></li>
+            <li><a href="#packages" id="">Packages</a></li>
+            <li><a href="#contact" id="conact">Contact Us</a></li>
+            <li><a href="#links-section" id="booking">Booking Link</a></li>
+            <li><a href="#" id="hotel-bookings"></a></li>
+            <li><a href="#" id="roadmap">Roadmap</a></li>
+            <li class="traffic"><a href="trafficupdate.html">Traffic-Updates</a></li>
+            <li class="esteem"><a href="cost_esteem.html">Cost-Esteem</a></li>
+            <li class="login"><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home-section">
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <div class="icons" style="color: white">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+        </form>
+
+    <!-- header section ends -->
+
+    <!-- login form container  -->
+    <section id="login-section" class="hidden">
+        <div id="login-container">
+            <iframe id="login-frame" src="login.html" style="color: white"></iframe>
+        </div>
+
+
+        <i class="fas fa-times" id="form-close" style="color: white"></i>
+
+</section>
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>adventure is worthwhile</h3>
+            <p>dicover new places with us, adventure awaits</p>
+            <a href="#" class="btn">discover more</a>
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="MyAssests/seabeach.mp4"></span>
+            <span class="vid-btn" data-src="MyAssests/Leopard.mp4"></span>
+            <span class="vid-btn" data-src="MyAssests/teaGarden.mp4"></span>
+            <span class="vid-btn" data-src="MyAssests/sea.mp4"></span>
+            <span class="vid-btn" data-src="MyAssests/ducks.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="MyAssests/victoria.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+ <!-- chat bot section starts -->
+
+ <div class="chat-button" onclick="toggleChat()">💬</div>
+
+ <div id="chat-container">
+     <iframe id="chat-frame" src="bot.html"></iframe>
+ </div>
+ <!-- chat bot section ends -->
+  
+
+    <!-- packages section starts  -->
+
+    <section class="packages" id="packages">
+
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/KNP.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>7 Days Jaldapara Tour</h3>
+                    <p> The notable one-horned Rhino is a major attraction in Kaziranga which is an endangered species
+                        in the world</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 27,300<span>RS 33,550</span> </div>
+                    <a href="jaldapara.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/sikkim.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>4 Days Digha Tour</h3>
+                    <p>The winding roads which make a 37 km long journey from Gangtok to reach an altitude of 12,400 ft
+                        are ethereally beautiful </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 8530<span>RS 12,000</span> </div>
+                    <a href="digha.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/a.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>6 Days Kalimpong Tour</h3>
+                    <p>Tawang Monastery is a significant monument in Arunachal Pradesh, popular as the largest Buddhist
+                        monastery in the entire country.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 19,350<span>RS 25,000</span> </div>
+                    <a href="kalimpong.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/m.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>6 Days Tour Darjeeling Tour</h3>
+                    <p>The enchanting sight of Noh Ka Likai falls can be best savoured from the viewing gallery. </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 15,000<span>RS 20,100</span> </div>
+                    <a href="darjeeeling.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/ma.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>3 Days Bakhali Tour</h3>
+                    <p>Loktak lake is one of the largest freshwater lakes in North East India </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 3600<span>RS 5000</span> </div>
+                    <a href="bakhalii.html" class="btn">book now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/tr.jpg" alt="">
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i>2 Days Sundarban Tour</h3>
+                    <p>This old Hindu shrine is situated around 56 km from Agartala town and is said to be one of the 51
+                        Shakti Peethas </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">RS 2400<span>RS 3100</span> </div>
+                    <a href="sundarbann.html" class="btn">book now</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- packages section ends -->
+
+    <!-- services section starts  -->
+
+    <section class="services" id="services">
+
+        <h1 class="heading">
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-hotel"></i>
+                <h3>affordable hotels</h3>
+                <p>Travelease makes finding budget-friendly hotels easy without compromising comfort. I found a great room at a fantastic price, saving more for my trip. Perfect for budget travelers!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-utensils"></i>
+                <h3>food and drinks</h3>
+                <p>Travelease's food and drink recommendations are spot on! They helped me discover amazing local eateries and hidden gems that I would've missed otherwise. A must-use for food lovers exploring new places!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>safty guide</h3>
+                <p>Travelease's safety guide is a great resource for travelers! It provides useful tips and essential information to help you stay safe and enjoy your trip with peace of mind. A must-read for every traveler!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe-asia"></i>
+                <h3>around the world</h3>
+                <p>Travelease's 'Around the World' section is fantastic! It offers great insights and tips for exploring destinations across the globe. Perfect for those looking to plan their next adventure with ease and inspiration!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-plane"></i>
+                <h3>fastest travel</h3>
+                <p>Travelease’s fastest travel options are a lifesaver! They helped me find the quickest routes and transport options, making my travel efficient and hassle-free. Ideal for those who want to save time while exploring!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>adventures</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate
+                    exercitationem ut minima itaque iusto ipsum corrupti!</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- services section ends -->
+
+    <!-- gallery section starts  -->
+
+    <section class="gallery" id="gallery">
+
+        <h1 class="heading">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Enter starting Point.">
+            <button class="voice-btn" onclick="startVoiceSearch()">🎙</button>
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="MyAssests/darjeelingtea.avif" alt="">
+                <div class="content">
+                    <h3>Darjeeling</h3>
+                    <p>Take a walk in the tea garden and taste the aromatic cup of tea while in Darjeeling and capture
+                        beautiful picture.</p>
+                    <a href="darjeeling.html" target="_blank" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/kolkataTajMahal.jpg" alt="">
+                <div class="content">
+                    <h3>Kolkata</h3>
+                    <p>
+                        Marvel at the Victoria Memorial's majestic beauty as its white marble glistens in the golden
+                        sunshine against Kolkata's vibrant backdrop</p>
+                    <a href="kolkata.html" target="_blank" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/coochBiharRajbari.jpg" alt="">
+                <div class="content">
+                    <h3>Cooch Behar</h3>
+                    <p>Enjoy the grandeur of Cooch Behar Rajbari in West Bengal, where regal architecture and lush gardens evoke a bygone era</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/dighaBeach.jpg" alt="">
+                <div class="content">
+                    <h3>Digha</h3>
+                    <p>Explore the serene Digha Sea Beach in West Bengal, where the endless coastline meets the tranquil waters of the Bay of Bengal</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/sundarban.avif" alt="">
+                <div class="content">
+                    <h3>sundarban</h3>
+                    <p>Explore the Sundarbans in West Bengal on a boat safari, home to the famous Bengal tiger and rich mangrove forests</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/purulia.avif" alt="">
+                <div class="content">
+                    <h3>Purulia</h3>
+                    <p>The local representative will meet you and arrange your transfer to the hotel in Purulia, a charming hill city of Bengal</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/howrahBridge.avif" alt="">
+                <div class="content">
+                    <h3>Howrah</h3>
+                    <p>Marvel at the iconic Howrah Bridge, an engineering marvel and symbol of Kolkata's vibrant history and culture</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/bishnupur.avif" alt="">
+                <div class="content">
+                    <h3>Bankura</h3>
+                    <p>Discover the historical beauty of Bishnupur with a local guide, exploring its ancient terracotta heritage</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="MyAssests/iskcon.jpg" alt="">
+                <div class="content">
+                    <h3>Nadia</h3>
+                    <p>Visit the ISKCON Temple in Nadia, a serene spiritual haven with vibrant Krishna consciousness practices
+                    </p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- gallery section ends -->
+
+    <!-- review section starts  -->
+
+    <section class="review" id="review">
+
+        <h1 class="heading">
+            <span>r</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+
+        <div class="swiper-container review-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/pic1.png" alt="">
+                        <h3>Preeti Shaw</h3>
+                        <p>Travelease truly lives up to its name. From the moment I started using the site, everything felt seamless and easy. I found great deals on hotels and travel packages, and the restaurant guide was an added bonus. This site has made planning travel so much more enjoyable!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/pic2.png" alt="">
+                        <h3>Priyanka chowdhury</h3>
+                        <p>I recently used Travelease to plan my vacation, and it was a game-changer! The site made it so easy to find the best hotels and travel packages, all in one place. Plus, the restaurant recommendations were spot on. I will definitely be using Travelease for all my future travels! </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/pic3.png" alt="">
+                        <h3>Shailja Swati</h3>
+                        <p>Travelease took the hassle out of planning my trip! I loved how everything was organized, from hotels to local restaurants. The travel packages were a great deal, and I felt like I got the best value for my money. Highly recommend for anyone who loves to travel!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/pic4.png" alt="">
+                        <h3>Prachi Bera</h3>
+                        <p>As someone who travels frequently, I can't believe I didn't find Travelease sooner! It's got everything you need to plan a perfect trip, with tons of options for hotels and restaurants. The user interface is super friendly, and the travel packages make booking so easy. I’m hooked!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <a href="a.html"><button class="feature-btn" onclick="scrollToReview()">Feature Your Review? Click Here</button>
+        </a>
+    </section>
+
+    
+    <!-- review section ends -->
+
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+        </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="images/contact-img.svg" alt="">
+            </div>
+
+            <form action="insert.php" method="POST">
+                <div class="inputBox">
+                    <input type="text" placeholder="full name" name="Name" required>
+                    <input type="email" placeholder="someone123@gmail.com" name="email" required>
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="91+" name="number" required>
+                    <input type="text" placeholder="subject" name="subject">
+                </div>
+                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
+                <input type="submit" class="btn" value="send">
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- contact section ends -->
+<!-- Links Section -->
+<div id="links-section" class="links-section">
+    <h2>Helpline Numbers & Booking Links</h2>
+    <ul>
+        <li>
+            <strong>Helpline Numbers:</strong>
+            <ul>
+                <li>Police: 100</li>
+                <li>Ambulance: 102</li>
+                <li>Fire: 101</li>
+                <li>Women Helpline: 1091</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Booking Links:</strong>
+            <ul>
+                <li>Bus: <a href="https://www.redbus.com" target="_blank">redbus.com</a></li>
+                <li>Train: <a href="https://www.irctc.co.in" target="_blank">irctc.co.in</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+    <!-- footer section  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>about us</h3>
+                <p>Need help planning your trip?Contact us!TravelEase is here to make your journey smooth and enjoyable
+                    as you explore the stunning landscapes of West Bengal!
+                </p>
+            </div>
+            <div class="box">
+                <h3>branch locations</h3>
+                <a href="#">Kolkata</a>
+                <a href="#">Jhargram</a>
+                <a href="#">Howrah</a>
+                <!-- <a href="#">Sikkim</a>
+            <a href="#">Arunachal Pradesh/a>
+            <a href="#">Meghalaya</a> -->
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">book</a>
+                <a href="#">packages</a>
+                <a href="#">services</a>
+                <a href="#">gallery</a>
+                <a href="#">review</a>
+                <a href="#">contact</a>
+            </div>
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="https://www.facebook.com" target="_blank">facebook</a>
+                <a href="https://www.instagram.com" target="_blank">instagram</a>
+                <a href="https://www.twitter.com" target="_blank">twitter</a>
+                <a href="https://www.linkedin.com" target="_blank">linkedin</a>
+            </div>
+
+        </div>
+
+        <h1 class="credit"> <span>©2024TravelEase. All Rights Reserved.</span> </h1>
+
+    </section>
+
+</section>
+<!-- Hotel Booking Section -->
+<section id="hotel-booking-section" class="hidden">
+    <h1>Find Your Perfect Hotel</h1>
+    <div class="search-container">
+        <h1><label for="location">Location:</label></h1>
+        <h1><input type="text" id="hotel-location" placeholder="Enter destination"></h1>
+
+        <h1><label for="hotel-rating">Minimum Rating:</label></h1>
+        <h1><input type="number" id="hotel-rating" min="1" max="5" placeholder="Rating (1-5)"></h1>
+
+        <h1><label for="hotel-price">Max Price (per night):</label></h1>
+        <h1><input type="number" id="hotel-price" placeholder="Enter max price"></h1>
+
+        <h1><label for="hotel-persons">Number of Persons:</label></h1>
+        <h1><input type="number" id="hotel-persons" min="1" placeholder="Number of persons"></h1>
+
+        <h1><label>Amenities:</label></h1>
+        <div class="amenities">
+            <h1><input type="checkbox" id="hotel-pool" value="Swimming Pool"> Swimming Pool</h1>
+            <h1><input type="checkbox" id="hotel-garden" value="Garden"> Garden</h1>
+            <h1><input type="checkbox" id="hotel-restaurant" value="Restaurant"> Restaurant</h1>
+            <h1><input type="checkbox" id="hotel-ac-room" value="AC Room"> AC Room</h1>
+            <h1><input type="checkbox" id="hotel-non-ac-room" value="Non-AC Room"> Non-AC Room</h1>
+        </div>
+
+        <button id="search-hotels">Search Hotels</button>
+    </div>
+
+    <div id="hotel-results"></div>
+</section>
+
+<!-- Roadmap Section -->
+<section id="roadmap-section" class="hidden">
+    <div class="roadmap-container">
+        <h2>Plan Your Route</h2>
+        <label for="location">Your Location:</label><br>
+        <input type="text" id="location" placeholder="Enter starting point">
+        <label for="destination">Your Destination:</label>
+        <input type="text" id="destination" placeholder="Enter destination">
+        <div class="travel-medium">
+            <label>Choose the medium:</label>
+            <button id="train-btn">🚆 Train</button>
+            <button id="bus-btn">🚌 Bus</button>
+            <button id="car-btn">🚓 Car</button>
+        </div>
+        <button id="view-roadmap">View Roadmap</button>
+    </div>
+
+    <div id="roadmap-output" class="hidden"></div>
+</section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+    <script>
+        function toggleChat() {
+        var chatBox = document.getElementById("chat-container");
+        chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
+    }
+    </script>
+
+</body>
+
+</html>

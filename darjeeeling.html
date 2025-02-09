@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Day Darjeeling Tour | Himalayan Adventure</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #003366, #0088cc);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Tour Information */
+        .container {
+            background: white;
+            padding: 30px;
+            margin: 40px auto;
+            width: 85%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Itinerary Section */
+        .itinerary ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .itinerary li {
+            background: #e3f2fd;
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .itinerary li:hover {
+            background: #bbdefb;
+            transform: scale(1.02);
+        }
+
+        .itinerary img {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            margin-right: 18px;
+            border: 3px solid #003366;
+        }
+
+        /* Booking Section */
+        .booking button {
+            background: linear-gradient(135deg, #ff6600, #ff3300);
+            color: white;
+            font-size: 20px;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .booking button:hover {
+            background: linear-gradient(135deg, #ff9966, #ff6600);
+            transform: translateY(-3px);
+        }
+
+        #confirmationMessage {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #27ae60;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>6-Day Darjeeling Tour</h1>
+        <p>Explore the breathtaking beauty of Darjeeling and beyond!</p>
+    </header>
+
+    <section class="container">
+        <h2>Tour Highlights</h2>
+        <p>The enchanting sight of Noh Ka Likai falls can be best savored from the viewing gallery. Immerse yourself in the mesmerizing landscapes of Darjeeling.</p>
+        
+        <h2>Total Cost: ₹15,000</h2>
+    </section>
+
+    <section class="container itinerary">
+        <h2>6-Day Itinerary</h2>
+        <ul>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?darjeeling" alt="Darjeeling">
+                <strong>Day 1:</strong> Arrival in Darjeeling, visit to Tiger Hill for sunrise.
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?monastery" alt="Monastery">
+                <strong>Day 2:</strong> Explore Ghoom Monastery and the iconic Batasia Loop.
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?tea" alt="Tea Estate">
+                <strong>Day 3:</strong> Visit the lush tea gardens and Happy Valley Tea Estate.
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?himalayas" alt="Himalayas">
+                <strong>Day 4:</strong> Excursion to Mirik Lake and Himalayan Mountaineering Institute.
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?train" alt="Toy Train">
+                <strong>Day 5:</strong> Ride the famous Darjeeling Himalayan Railway (Toy Train).
+            </li>
+            <li>
+                <img src="https://source.unsplash.com/100x100/?market" alt="Shopping">
+                <strong>Day 6:</strong> Last-minute shopping at Chowrasta and departure.
+            </li>
+        </ul>
+    </section>
+
+    <section class="container booking">
+        <button id="bookNow">Book Now</button>
+        <p id="confirmationMessage">✅ Thank you! Our team will contact you shortly.</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Darjeeling Himalayan Tours | Your Gateway to Serenity</p>
+    </footer>
+
+    <script>
+        document.getElementById("bookNow").addEventListener("click", function() {
+            document.getElementById("confirmationMessage").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>

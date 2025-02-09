@@ -1,0 +1,161 @@
+/* CSS: styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background: url('detalisimags/siteSeeingPlace/darjeelingbg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+/* Overlay for Header */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Header Section */
+.header {
+    position: relative;
+    height: 300px;
+    color: rgb(172, 71, 71);
+    text-align: center;
+    padding-top: 100px;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-family: "Roboto Slab", serif;
+    margin: 0;
+    z-index: 3;
+}
+
+.header p {
+    font-size: 1.2rem;
+    font-family: "Roboto Slab", serif;
+    z-index: 3;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Section Titles */
+h2 {
+    color: #583050;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    
+}
+
+/* Section Styles */
+.section {
+    background: rgba(152, 148, 144, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Beauty Section */
+.beauty-section img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+.beauty-section p {
+    text-align: justify;
+    font-family: "Playwrite CU";
+    font-weight: bold;
+    color: rgb(82, 47, 47);
+    font-style: normal;
+}
+
+/* Food Section */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.food-item {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Playwrite CU";
+    font-weight: bold;
+    color: rgb(82, 47, 47);
+    font-style: normal;
+}
+.food-item h3{
+    color:black;
+}
+.food-item img {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+/* Sightseeing Section */
+.sightseeing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.sight-item {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Playwrite CU";
+    font-weight: bold;
+    color: rgb(82, 47, 47);
+    font-style: normal;
+}
+.sight-item h3{
+    color:black;
+}
+
+.sight-item img {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+}

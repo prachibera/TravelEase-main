@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Travel Cost Estimation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input, select, button {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result-container {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .cost-details {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .cost-details strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dynamic Travel Cost Estimation</h1>
+    </header>
+
+    <div class="container">
+        <div class="input-container">
+            <label for="vehicleType">Select Vehicle Type:</label>
+            <select id="vehicleType">
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="bus">Bus</option>
+                <option value="train">Train</option>
+                <option value="flight">Flight</option>
+            </select>
+
+            <label for="distance">Enter Distance (km):</label>
+            <input type="number" id="distance" placeholder="Distance in km">
+
+            <label for="fuelEfficiency">Fuel Efficiency (km/l):</label>
+            <input type="number" id="fuelEfficiency" placeholder="Fuel Efficiency (km/l)">
+
+            <label for="fuelCost">Fuel Cost per Liter (₹):</label>
+            <input type="number" id="fuelCost" placeholder="Fuel Cost per Liter (₹)">
+
+            <label for="tolls">Tolls (₹):</label>
+            <input type="number" id="tolls" placeholder="Toll Costs (₹)">
+
+            <button onclick="calculateTravelCost()">Estimate Cost</button>
+        </div>
+
+        <div id="result" class="result-container" style="display: none;">
+            <!-- Results will be shown here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Travel Cost Estimation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function generateRandomCost() {
+            return Math.floor(Math.random() * 20) + 5; // Generates random fare between 5 to 25
+        }
+
+        function calculateTravelCost() {
+            let vehicleType = document.getElementById("vehicleType").value;
+            let distance = parseFloat(document.getElementById("distance").value);
+            let fuelEfficiency = parseFloat(document.getElementById("fuelEfficiency").value);
+            let fuelCost = parseFloat(document.getElementById("fuelCost").value);
+            let tolls = parseFloat(document.getElementById("tolls").value);
+
+            // Basic validation
+            if (!distance || !fuelEfficiency || !fuelCost) {
+                alert("Please enter valid values for distance, fuel efficiency, and fuel cost.");
+                return;
+            }
+
+            // Fuel Cost Calculation
+            let totalFuelCost = (distance / fuelEfficiency) * fuelCost;
+            let totalCost = totalFuelCost + tolls;
+
+            let transportCost = 0;
+            let transportOptions = '';
+
+            // Check for public transport options if selected
+            if (vehicleType === 'bus' || vehicleType === 'train' || vehicleType === 'flight') {
+                transportCost = generateRandomCost() * distance;
+                transportOptions = vehicleType.charAt(0).toUpperCase() + vehicleType.slice(1);
+            }
+
+            // Display results
+            let resultHTML = `
+                <h2>Estimated Travel Costs</h2>
+                <div class="cost-details">
+                    <strong>Fuel Cost:</strong> ₹${totalFuelCost.toFixed(2)}<br>
+                    <strong>Toll Charges:</strong> ₹${tolls.toFixed(2)}<br>
+                    <strong>Total Cost (Vehicle + Tolls):</strong> ₹${totalCost.toFixed(2)}<br>
+                </div>
+            `;
+
+            if (transportOptions) {
+                resultHTML += `
+                    <h3>Public Transport Option: ${transportOptions}</h3>
+                    <div class="cost-details">
+                        <strong>Estimated Cost:</strong> ₹${transportCost.toFixed(2)}<br>
+                    </div>
+                `;
+            }
+
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").innerHTML = resultHTML;
+        }
+    </script>
+
+</body>
+</html>

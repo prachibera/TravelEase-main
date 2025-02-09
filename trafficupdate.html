@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Traffic Updates - West Bengal</title>
+    
+    <!-- Leaflet.js for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- OpenStreetMap Nominatim API for Search -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #map { height: 500px; width: 90%; margin: auto; }
+        #searchBox { padding: 10px; margin-top: 10px; width: 60%; }
+        .info-box { margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 5px; display: inline-block; }
+        table { width: 90%; margin: auto; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        th { background: #ddd; }
+        .red { background: red; color: white; }
+        .orange { background: orange; }
+        .green { background: green; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>🚦 Real-Time Traffic Updates - West Bengal 🚦</h2>
+
+    <input type="text" id="searchBox" placeholder="Enter a location in West Bengal">
+    <button onclick="searchLocation()">Search</button>
+
+    <div id="map"></div>
+
+    <div class="info-box">
+        <h3>📊 Traffic Congestion Levels</h3>
+        <p><span style="color: red;">● High Traffic (Red)</span> | 
+           <span style="color: orange;">● Medium Traffic (Orange)</span> | 
+           <span style="color: green;">● Clear Road (Green)</span></p>
+    </div>
+
+    <h3>🛣️ Highway Traffic Congestion Levels</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Highway Name</th>
+                <th>Congestion Level</th>
+            </tr>
+        </thead>
+        <tbody id="trafficTable"></tbody>
+    </table>
+
+    <h3>⚠️ Accident-Prone Areas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        <tbody id="accidentTable"></tbody>
+    </table>
+
+    <script>
+        var map = L.map('map').setView([22.5726, 88.3639], 10); // Default to West Bengal
+
+        // Load OpenStreetMap Tiles (No API key required)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var trafficMarkers = [];
+        var accidentMarkers = [];
+
+        // Updated Traffic Data (More highways)
+        var trafficData = [
+            { lat: 22.5726, lng: 88.3639, road: "NH-12", level: "High Traffic", color: "red" },
+            { lat: 22.5750, lng: 88.3650, road: "NH-2", level: "Medium Traffic", color: "orange" },
+            { lat: 22.5800, lng: 88.3700, road: "NH-6", level: "Clear Road", color: "green" },
+            { lat: 23.2500, lng: 87.8500, road: "NH-60", level: "Medium Traffic", color: "orange" },
+            { lat: 22.6000, lng: 88.4000, road: "NH-114", level: "High Traffic", color: "red" },
+            { lat: 22.6400, lng: 88.4500, road: "SH-6", level: "Medium Traffic", color: "orange" },
+            { lat: 22.6800, lng: 88.4800, road: "SH-7", level: "Clear Road", color: "green" }
+        ];
+
+        // Updated Accident Data with more locations
+        var accidentData = [
+            { lat: 22.6000, lng: 88.4000, location: "Kolkata - Park Circus", severity: "Severe" },
+            { lat: 22.5700, lng: 88.3500, location: "M G Road", severity: "Moderate" },
+            { lat: 22.5900, lng: 88.3500, location: "Howrah Bridge", severity: "Severe" },
+            { lat: 22.5640, lng: 88.3630, location: "Esplanade", severity: "High" },
+            { lat: 22.6700, lng: 88.4200, location: "Dum Dum", severity: "Moderate" },
+            { lat: 22.5370, lng: 88.3470, location: "Chowringhee Road", severity: "High" },
+            { lat: 22.5860, lng: 88.4210, location: "Salt Lake Sector V", severity: "Moderate" },
+            { lat: 22.5300, lng: 88.3600, location: "Sarat Bose Road", severity: "Moderate" },
+            { lat: 22.5600, lng: 88.3800, location: "Rajabazar", severity: "Severe" },
+            { lat: 22.5200, lng: 88.3800, location: "Behala", severity: "High" }
+        ];
+
+        // Function to update the Traffic Table based on proximity
+        function updateTrafficTable(location) {
+            document.getElementById("trafficTable").innerHTML = "";
+            trafficMarkers.forEach(marker => map.removeLayer(marker));
+            trafficMarkers = [];
+
+            trafficData.forEach(data => {
+                if (getDistance(location.lat, location.lng, data.lat, data.lng) < 50) { // 50 km threshold
+                    L.circle([data.lat, data.lng], {
+                        color: data.color,
+                        fillColor: data.color,
+                        fillOpacity: 0.7,
+                        radius: 500
+                    }).addTo(map).bindPopup(`<b>${data.road}</b><br>${data.level}`);
+
+                    document.getElementById("trafficTable").innerHTML += `<tr>
+                        <td>${data.road}</td>
+                        <td class="${data.color}">${data.level}</td>
+                    </tr>`;
+                }
+            });
+        }
+
+        // Function to update the Accident Table based on proximity and severity
+        function updateAccidentTable(location) {
+            document.getElementById("accidentTable").innerHTML = "";
+            accidentMarkers.forEach(marker => map.removeLayer(marker));
+            accidentMarkers = [];
+
+            accidentData.forEach(data => {
+                // Proximity threshold set to 10 km (10000 meters)
+                if (getDistance(location.lat, location.lng, data.lat, data.lng) < 10) {
+                    let marker = L.marker([data.lat, data.lng])
+                        .addTo(map)
+                        .bindPopup(`<b>${data.location}</b><br>Severity: ${data.severity}`);
+                    accidentMarkers.push(marker);
+
+                    // Only show severe or high severity accidents
+                    if (data.severity === "Severe" || data.severity === "High") {
+                        document.getElementById("accidentTable").innerHTML += `<tr>
+                            <td>${data.location}</td>
+                            <td>${data.severity}</td>
+                        </tr>`;
+                    }
+                }
+            });
+        }
+
+        // Function to search location and update the map
+        function searchLocation() {
+            var location = document.getElementById("searchBox").value;
+            if (!location) {
+                alert("Please enter a location in West Bengal!");
+                return;
+            }
+
+            var geocodeURL = `https://nominatim.openstreetmap.org/search?format=json&q=${location},West Bengal,India`;
+            
+            fetch(geocodeURL)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        var lat = data[0].lat;
+                        var lon = data[0].lon;
+                        map.setView([lat, lon], 13);
+
+                        updateTrafficTable({ lat: parseFloat(lat), lng: parseFloat(lon) });
+                        updateAccidentTable({ lat: parseFloat(lat), lng: parseFloat(lon) });
+
+                        L.marker([lat, lon]).addTo(map)
+                            .bindPopup(`<b>${location}</b><br>Location Found`).openPopup();
+                    } else {
+                        alert("Location not found! Try another place in West Bengal.");
+                    }
+                })
+                .catch(error => console.error("Error fetching location:", error));
+        }
+
+        // Distance calculation function (returns distance in kilometers)
+        function getDistance(lat1, lon1, lat2, lon2) {
+            var R = 6371; // Radius of the Earth in km
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c; // Returns distance in kilometers
+        }
+    </script>
+
+</body>
+</html>
